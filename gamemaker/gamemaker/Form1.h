@@ -78,6 +78,8 @@ namespace gamemaker {
 	private: System::Windows::Forms::TextBox^  textBox12;
 	private: System::Windows::Forms::TextBox^  textBox13;
 	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Label^  label15;
+	private: System::Windows::Forms::TextBox^  textBox14;
 
 	private:
 		/// <summary>
@@ -123,6 +125,8 @@ namespace gamemaker {
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -379,7 +383,7 @@ namespace gamemaker {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(24, 395);
+			this->button2->Location = System::Drawing::Point(12, 416);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(143, 56);
 			this->button2->TabIndex = 32;
@@ -387,11 +391,29 @@ namespace gamemaker {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(12, 364);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(77, 13);
+			this->label15->TabIndex = 33;
+			this->label15->Text = L"Save Directory";
+			// 
+			// textBox14
+			// 
+			this->textBox14->Location = System::Drawing::Point(15, 381);
+			this->textBox14->Name = L"textBox14";
+			this->textBox14->Size = System::Drawing::Size(181, 20);
+			this->textBox14->TabIndex = 34;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(519, 484);
+			this->Controls->Add(this->textBox14);
+			this->Controls->Add(this->label15);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox13);
 			this->Controls->Add(this->textBox12);
@@ -433,6 +455,7 @@ namespace gamemaker {
 		List<String^> bText;
 		List<String^> fnames;
 		int numButtons;
+
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 bText.Add(textBox2->Text->ToString());
 				 fnames.Add(textBox3->Text->ToString() + ".xml");
@@ -440,7 +463,13 @@ namespace gamemaker {
 				 textBox4->Text = (numButtons + " buttons in tile");
 			 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 StreamWriter^ sw = gcnew StreamWriter("c:\\" + textBox1->Text->ToString() + ".xml");	//get file name
+			 StreamWriter^ sw;
+
+			 if(textBox14->TextLength > 0)
+			 {
+			 if(!textBox14->Text->EndsWith("\\"))	//check to see if the user has a \ at the end of the path and add it if there isn't one
+				 textBox14->Text = textBox14->Text + "\\";
+				 sw = gcnew StreamWriter(textBox14->Text->ToString() + textBox1->Text->ToString() + ".xml");
 			 sw->WriteLine("<tile>");
 			 if(numButtons != 0)
 			 {
@@ -491,10 +520,19 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				 //write variable declaration
 				 if(textBox12->TextLength && textBox13->TextLength)
 				 {
-					 sw->WriteLine("<var>");
-					 sw->WriteLine("<name>" + textBox12->Text->ToString() + "</name>");
-					 sw->WriteLine("<value>" + textBox13->Text->ToString() + "</value>");
-					 sw->WriteLine("</var>");
+					 if(textBox12->Text->ToString() == "string" || textBox12->Text->ToString() == "int" ||textBox12->Text->ToString() == "bool")//make sure the variable name isn't a type name
+					 {
+						MessageBoxButtons msb = MessageBoxButtons::OK;
+						MessageBoxIcon mbi = MessageBoxIcon::Error;
+						MessageBox::Show("Error: The name of a variable cannot be a supported type name.","Error!",msb,mbi);
+					 }
+					 else
+					 {
+						sw->WriteLine("<var>");
+						sw->WriteLine("<name>" + textBox12->Text->ToString() + "</name>");
+						sw->WriteLine("<value>" + textBox13->Text->ToString() + "</value>");
+						sw->WriteLine("</var>");
+					 }
 				 }
 
 				 sw->WriteLine("</tile>");
@@ -505,7 +543,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				 fnames.Clear();
 				 numButtons = 0;
 
-				 //todo: reset text boxes
+			 }
+			 else
+			 {
+				 MessageBox::Show("Error: No file path provided. Please enter a path and remake this tile.","Error!",MessageBoxButtons::OK,MessageBoxIcon::Error);
+			 }
 		 }
 };
 }

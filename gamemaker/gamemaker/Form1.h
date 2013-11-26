@@ -80,6 +80,11 @@ namespace gamemaker {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Label^  label15;
 	private: System::Windows::Forms::TextBox^  textBox14;
+	private: System::Windows::Forms::Label^  label17;
+	private: System::Windows::Forms::Label^  label18;
+	private: System::Windows::Forms::Label^  label19;
+	private: System::Windows::Forms::TextBox^  textBox15;
+	private: System::Windows::Forms::TextBox^  textBox16;
 
 	private:
 		/// <summary>
@@ -127,6 +132,11 @@ namespace gamemaker {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->textBox15 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -178,7 +188,7 @@ namespace gamemaker {
 			this->textBox3->Location = System::Drawing::Point(12, 129);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(190, 20);
-			this->textBox3->TabIndex = 5;
+			this->textBox3->TabIndex = 3;
 			// 
 			// textBox4
 			// 
@@ -211,7 +221,7 @@ namespace gamemaker {
 			this->textBox5->Location = System::Drawing::Point(12, 212);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(187, 20);
-			this->textBox5->TabIndex = 9;
+			this->textBox5->TabIndex = 4;
 			// 
 			// label5
 			// 
@@ -236,14 +246,14 @@ namespace gamemaker {
 			this->textBox6->Location = System::Drawing::Point(12, 313);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(187, 20);
-			this->textBox6->TabIndex = 12;
+			this->textBox6->TabIndex = 6;
 			// 
 			// textBox7
 			// 
 			this->textBox7->Location = System::Drawing::Point(12, 260);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(184, 20);
-			this->textBox7->TabIndex = 13;
+			this->textBox7->TabIndex = 5;
 			// 
 			// textBox8
 			// 
@@ -252,7 +262,7 @@ namespace gamemaker {
 			this->textBox8->Multiline = true;
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(264, 100);
-			this->textBox8->TabIndex = 14;
+			this->textBox8->TabIndex = 8;
 			// 
 			// label7
 			// 
@@ -268,7 +278,7 @@ namespace gamemaker {
 			this->textBox9->Location = System::Drawing::Point(242, 171);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(92, 20);
-			this->textBox9->TabIndex = 16;
+			this->textBox9->TabIndex = 9;
 			// 
 			// label8
 			// 
@@ -286,7 +296,7 @@ namespace gamemaker {
 			this->comboBox1->Location = System::Drawing::Point(357, 171);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(44, 21);
-			this->comboBox1->TabIndex = 18;
+			this->comboBox1->TabIndex = 10;
 			// 
 			// label9
 			// 
@@ -320,7 +330,7 @@ namespace gamemaker {
 			this->textBox10->Location = System::Drawing::Point(426, 172);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(80, 20);
-			this->textBox10->TabIndex = 22;
+			this->textBox10->TabIndex = 11;
 			// 
 			// textBox11
 			// 
@@ -329,7 +339,7 @@ namespace gamemaker {
 			this->textBox11->Multiline = true;
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->Size = System::Drawing::Size(264, 100);
-			this->textBox11->TabIndex = 23;
+			this->textBox11->TabIndex = 12;
 			// 
 			// label12
 			// 
@@ -372,14 +382,14 @@ namespace gamemaker {
 			this->textBox12->Location = System::Drawing::Point(242, 358);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(89, 20);
-			this->textBox12->TabIndex = 30;
+			this->textBox12->TabIndex = 13;
 			// 
 			// textBox13
 			// 
 			this->textBox13->Location = System::Drawing::Point(370, 358);
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(99, 20);
-			this->textBox13->TabIndex = 31;
+			this->textBox13->TabIndex = 14;
 			// 
 			// button2
 			// 
@@ -405,13 +415,59 @@ namespace gamemaker {
 			this->textBox14->Location = System::Drawing::Point(15, 381);
 			this->textBox14->Name = L"textBox14";
 			this->textBox14->Size = System::Drawing::Size(181, 20);
-			this->textBox14->TabIndex = 34;
+			this->textBox14->TabIndex = 7;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(242, 397);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(94, 13);
+			this->label17->TabIndex = 35;
+			this->label17->Text = L"Modify Int Variable";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(242, 416);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(76, 13);
+			this->label18->TabIndex = 36;
+			this->label18->Text = L"Variable Name";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(357, 416);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(77, 13);
+			this->label19->TabIndex = 37;
+			this->label19->Text = L"Modify Amount";
+			// 
+			// textBox15
+			// 
+			this->textBox15->Location = System::Drawing::Point(242, 433);
+			this->textBox15->Name = L"textBox15";
+			this->textBox15->Size = System::Drawing::Size(100, 20);
+			this->textBox15->TabIndex = 15;
+			// 
+			// textBox16
+			// 
+			this->textBox16->Location = System::Drawing::Point(360, 432);
+			this->textBox16->Name = L"textBox16";
+			this->textBox16->Size = System::Drawing::Size(100, 20);
+			this->textBox16->TabIndex = 16;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(519, 484);
+			this->Controls->Add(this->textBox16);
+			this->Controls->Add(this->textBox15);
+			this->Controls->Add(this->label19);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->label17);
 			this->Controls->Add(this->textBox14);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->button2);
@@ -482,8 +538,8 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					f = fnames[count];
 					
 					sw->WriteLine("<link>");
-					sw->WriteLine("<file>" + f + "</file>");
-					sw->WriteLine("<text>" + b + "</text>");
+					sw->WriteLine("	<file>" + f + "</file>");
+					sw->WriteLine("	<text>" + b + "</text>");
 					sw->WriteLine("</link>");
 				 }
 			 }
@@ -529,11 +585,20 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					 else
 					 {
 						sw->WriteLine("<var>");
-						sw->WriteLine("<name>" + textBox12->Text->ToString() + "</name>");
-						sw->WriteLine("<value>" + textBox13->Text->ToString() + "</value>");
+						sw->WriteLine("	<name>" + textBox12->Text->ToString() + "</name>");
+						sw->WriteLine("	<value>" + textBox13->Text->ToString() + "</value>");
 						sw->WriteLine("</var>");
 					 }
 				 }
+				 if(textBox15->TextLength && textBox16->TextLength)
+				 {
+					sw->WriteLine("<modify>");
+					sw->WriteLine("	<var>" + textBox15->Text->ToString() + "</var>");
+					sw->WriteLine("	<amount>" + textBox16->Text->ToString() + "</amount>");
+					sw->WriteLine("</modify>");
+				 }
+				 
+
 
 				 sw->WriteLine("</tile>");
 				 sw->Close();
